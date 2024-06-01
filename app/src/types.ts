@@ -43,3 +43,17 @@ export interface ButtonIconInterface {
   onClick?: () => void;
   disabled?: boolean;
 }
+
+export interface ModalFormInterface {
+  open: boolean;
+  resetForm: () => void;
+  headerTitle: string;
+  onModalSubmit: () => void;
+  children?: ReactNode;
+}
+
+export interface CardModalInterface {
+  openModal: boolean;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+  modalTitle: 'Agregar' | 'Editar';
+}
