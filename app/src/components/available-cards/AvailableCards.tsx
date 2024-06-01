@@ -1,6 +1,7 @@
 import { useEffect, useContext } from 'react';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Cards from '../../core/cards/Cards';
-import AddButton from '../add-button/AddButton';
+import ButtonIcon from '../../core/button-icon/ButtonIcon';
 import { Context } from '../../context/Context';
 
 const AvailableCards = () => {
@@ -16,7 +17,11 @@ const AvailableCards = () => {
           alignItems: 'center',
           height: '100%',
         }}>
-        <AddButton />
+        <ButtonIcon
+          id={'add_card_button'}
+          icon={<AddCircleOutlineIcon fontSize='large' />}
+          tooltip={'Agregar'}
+        />
       </div>
     ),
   };
