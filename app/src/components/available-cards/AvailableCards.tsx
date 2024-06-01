@@ -21,6 +21,7 @@ const AvailableCards = () => {
           id={'add_card_button'}
           icon={<AddCircleOutlineIcon fontSize='large' />}
           tooltip={'Agregar'}
+          onClick={() => {}}
         />
       </div>
     ),

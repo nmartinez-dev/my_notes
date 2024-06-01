@@ -29,7 +29,7 @@ export interface CardsInterface {
 }
 
 export interface AlertInterface {
-  severity: string;
+  severity: 'success' | 'error';
   text: string;
   duration: number | null;
   open: boolean;
@@ -40,6 +40,6 @@ export interface ButtonIconInterface {
   icon: ReactNode;
   tooltip?: string;
   placement?: any;
-  onClick?: void;
+  onClick?: () => void;
   disabled?: boolean;
 }
