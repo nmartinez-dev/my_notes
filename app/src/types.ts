@@ -20,6 +20,7 @@ export interface ProviderInterface {
 export interface CardInterface {
   label: string;
   content: ReactNode | string;
+  isEmpty: boolean;
 }
 
 export interface CardsInterface {
@@ -52,8 +53,22 @@ export interface ModalFormInterface {
   children?: ReactNode;
 }
 
+export interface ModalConfirmInterface {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  onConfirm: () => void;
+}
+
 export interface CardModalInterface {
   openModal: boolean;
   setOpenModal: Dispatch<SetStateAction<boolean>>;
   modalTitle: 'Agregar' | 'Editar';
+  titleProp?: string;
+  descriptionProp?: ReactNode | string;
+  index?: number;
+}
+
+export interface CardBodyInterface {
+  card: CardInterface;
+  index: number;
 }

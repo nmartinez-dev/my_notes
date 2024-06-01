@@ -1,13 +1,25 @@
-import { FC, useState } from 'react';
+import { FC, ReactNode, useContext, useState } from 'react';
 import { TextField } from '@mui/material';
 import ModalForm from '../../core/modal-form/ModalForm';
+import { Context } from '../../context/Context';
 import { CardModalInterface } from '../../types';
 
 const CardModal: FC<CardModalInterface> = (props) => {
-  const { openModal, setOpenModal, modalTitle } = props;
+  const {
+    openModal,
+    setOpenModal,
+    modalTitle,
+    titleProp = '',
+    descriptionProp = '',
+    index = 0,
+  } = props;
 
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const { cards, setCards } = useContext(Context);
+
+  const [title, setTitle] = useState<string>(titleProp);
+  const [description, setDescription] = useState<ReactNode | string>(
+    descriptionProp
+  );
 
   const resetForm = () => {
     setTitle('');
@@ -15,7 +27,23 @@ const CardModal: FC<CardModalInterface> = (props) => {
     setOpenModal(false);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    let availableCards = cards.map((value) => value);
+    let cardToAdd = {
+      label: title,
+      content: description,
+      isEmpty: false,
+    };
+
+    if (modalTitle == 'Agregar') {
+      availableCards.unshift(cardToAdd);
+    } else {
+      availableCards[index] = cardToAdd;
+    }
+
+    setCards(availableCards);
+    resetForm();
+  };
 
   return (
     <ModalForm

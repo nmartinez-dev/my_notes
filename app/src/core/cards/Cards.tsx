@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
+import CardBody from '../card-body/CardBody';
 import { CardsInterface } from '../../types';
 
 const Cards: FC<CardsInterface> = (props) => {
@@ -28,7 +29,11 @@ const Cards: FC<CardsInterface> = (props) => {
                       maxHeight: Number(height) - 60,
                       height: '100%',
                     }}>
-                    {card.content}
+                    {card.isEmpty ? (
+                      card.content
+                    ) : (
+                      <CardBody card={card} index={index} />
+                    )}
                   </div>
                 </CardContent>
               </Card>

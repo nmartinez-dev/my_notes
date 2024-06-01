@@ -1,0 +1,17 @@
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  height: 100%;
+}
+
+.card-icon-buttons-container {
+  display: flex;
+  justify-content: end;
+}
+
+.card-icon-button {
+  background-color: #005c5c12;
+  border-radius: 100%;
+  margin-left: 10px;
+}

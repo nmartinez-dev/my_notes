@@ -34,6 +34,7 @@ const AvailableCards = () => {
         />
       </div>
     ),
+    isEmpty: true,
   };
 
   useEffect(() => {
