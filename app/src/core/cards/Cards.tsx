@@ -1,18 +1,8 @@
-import { ReactNode, FC } from 'react';
+import { FC } from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
+import { CardsInterface } from '../../types';
 
-interface CardProps {
-  label: string;
-  content: ReactNode | string;
-}
-
-interface CardsProps {
-  cards: CardProps[];
-  cardsPerRow?: number;
-  height?: number | string;
-}
-
-const Cards: FC<CardsProps> = (props) => {
+const Cards: FC<CardsInterface> = (props) => {
   const { cards = [], cardsPerRow = 3, height = 200 } = props;
 
   return (

@@ -1,16 +1,8 @@
-import { ReactNode, FC } from 'react';
+import { FC } from 'react';
 import { IconButton, Tooltip } from '@mui/material';
+import { ButtonIconInterface } from '../../types';
 
-interface ButtonIcon {
-  id: string;
-  icon: ReactNode;
-  tooltip?: string;
-  placement?: any;
-  onClick?: void;
-  disabled?: boolean;
-}
-
-const ButtonIcon: FC<ButtonIcon> = (props) => {
+const ButtonIcon: FC<ButtonIconInterface> = (props) => {
   const {
     id = 'button_icon',
     icon = null,

@@ -1,48 +1,18 @@
+import { createContext, useState, FC } from 'react';
 import {
-  createContext,
-  useState,
-  ReactNode,
-  FC,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+  ContextInterface,
+  ProviderInterface,
+  CardInterface,
+  AlertInterface,
+} from '../types';
 
-interface Context {
-  cards: CardProps[];
-  setCards: Dispatch<SetStateAction<CardProps[]>>;
-  alert: Alert;
-  setAlert: Dispatch<SetStateAction<Alert>>;
-  loading: boolean;
-  setLoading: Dispatch<SetStateAction<boolean>>;
-  setSuccess: (text: string, duration?: number) => void;
-  setError: (text: string, duration?: number | null) => void;
-  startLoading: () => void;
-  stopLoading: () => void;
-}
+export const Context = createContext<ContextInterface>({} as ContextInterface);
 
-interface ContextProvider {
-  children?: ReactNode;
-}
-
-interface CardProps {
-  label: string;
-  content: ReactNode | string;
-}
-
-interface Alert {
-  severity: string;
-  text: string;
-  duration: number | null;
-  open: boolean;
-}
-
-export const Context = createContext<Context>({} as Context);
-
-export const ContextProvider: FC<ContextProvider> = (props) => {
+export const ContextProvider: FC<ProviderInterface> = (props) => {
   const { children } = props;
 
-  const [cards, setCards] = useState<CardProps[]>([]);
-  const [alert, setAlert] = useState<Alert>({
+  const [cards, setCards] = useState<CardInterface[]>([]);
+  const [alert, setAlert] = useState<AlertInterface>({
     severity: 'success',
     text: '',
     duration: 3000,
