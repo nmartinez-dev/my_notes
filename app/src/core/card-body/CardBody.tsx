@@ -26,27 +26,21 @@ const CardBody: FC<CardBodyInterface> = (props) => {
   return (
     <>
       <div className='card-content'>
-        <div style={{ marginTop: 10, height: '100%' }}>
-          {card.content}
-        </div>
+        <div style={{ marginTop: 10, height: '100%' }}>{card.content}</div>
 
         <div className='card-icon-buttons-container'>
-          <div className='card-icon-button'>
-            <ButtonIcon
-              id='edit_card_button'
-              icon={<EditIcon />}
-              tooltip={'Editar'}
-              onClick={() => setOpenModal(true)}
-            />
-          </div>
-          <div className='card-icon-button'>
-            <ButtonIcon
-              id='delete_card_button'
-              icon={<DeleteIcon />}
-              tooltip={'Eliminar'}
-              onClick={() => setOpenConfirm(true)}
-            />
-          </div>
+          <ButtonIcon
+            id='edit_card_button'
+            icon={<EditIcon />}
+            tooltip={'Editar'}
+            onClick={() => setOpenModal(true)}
+          />
+          <ButtonIcon
+            id='delete_card_button'
+            icon={<DeleteIcon />}
+            tooltip={'Eliminar'}
+            onClick={() => setOpenConfirm(true)}
+          />
         </div>
       </div>
 
