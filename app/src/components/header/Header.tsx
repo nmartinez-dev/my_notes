@@ -1,7 +1,16 @@
-import './Header.css';
-
 const Header = () => {
-  return <div className='header'>Mis Notas</div>;
+  return (
+    <div
+      style={{
+        fontSize: '2rem',
+        color: '#000',
+        textAlign: 'center',
+        padding: '1.5rem',
+        fontWeight: 'bold',
+      }}>
+      Mis Notas
+    </div>
+  );
 };
 
 export default Header;

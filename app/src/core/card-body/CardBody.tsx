@@ -6,7 +6,6 @@ import CardModal from '../../components/card-modal/CardModal';
 import ModalConfirm from '../modal-confirm/ModalConfirm';
 import { Context } from '../../context/Context';
 import { CardBodyInterface } from '../../types';
-import './CardBody.css';
 
 const CardBody: FC<CardBodyInterface> = (props) => {
   const { card, index } = props;
@@ -25,10 +24,18 @@ const CardBody: FC<CardBodyInterface> = (props) => {
 
   return (
     <>
-      <div className='card-content'>
-        <div style={{ marginTop: 10, height: '100%', color: '#fff' }}>{card.content}</div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignContent: 'space-between',
+          height: '100%',
+        }}>
+        <div style={{ marginTop: 10, height: '100%', color: '#fff' }}>
+          {card.content}
+        </div>
 
-        <div className='card-icon-buttons-container'>
+        <div style={{ display: 'flex', justifyContent: 'end' }}>
           <ButtonIcon
             id='edit_card_button'
             icon={<EditIcon color='primary' />}

@@ -1,18 +1,10 @@
 import { useState, useContext } from 'react';
 import { TextField } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Context } from '../../context/Context';
+import { SearchButtonTheme } from '../../themes/Themes';
 
 const SearchContent = () => {
   const { cards, setFilteredCards } = useContext(Context);
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#000000',
-      },
-    },
-  });
 
   const [text, setText] = useState<string>('');
 
@@ -29,6 +21,7 @@ const SearchContent = () => {
                 .includes(event.target.value.toLowerCase())
             : true))
     );
+
     setFilteredCards(availableCards);
   };
 
@@ -40,7 +33,7 @@ const SearchContent = () => {
           justifyContent: 'flex-end',
           paddingRight: '1.5rem',
         }}>
-        <ThemeProvider theme={theme}>
+        <SearchButtonTheme>
           <TextField
             id='search'
             label='Buscar'
@@ -48,7 +41,7 @@ const SearchContent = () => {
             onChange={handleChange}
             autoComplete='off'
           />
-        </ThemeProvider>
+        </SearchButtonTheme>
       </div>
     </div>
   );

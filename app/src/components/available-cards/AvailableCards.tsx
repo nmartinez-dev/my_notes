@@ -17,9 +17,7 @@ const AvailableCards = () => {
 
   return (
     <>
-      <div style={{ margin: '1.5rem' }}>
-        <Cards cards={filteredCards} />
-      </div>
+      <Cards cards={filteredCards} />
 
       {openModal && (
         <CardModal

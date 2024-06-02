@@ -10,7 +10,7 @@ const Cards: FC<CardsInterface> = (props) => {
   const theme = useTheme();
 
   return (
-    <>
+    <div style={{ margin: '1.5rem' }}>
       {cards.length > 0 && (
         <div
           style={{
@@ -53,7 +53,7 @@ const Cards: FC<CardsInterface> = (props) => {
           })}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -42,7 +42,9 @@ const Alerts = () => {
           width: 'auto',
           zIndex: 2,
         }}>
-        <AlertTitle>{severity.substring(0, 1).toUpperCase() + severity.substring(1)}</AlertTitle>
+        <AlertTitle>
+          {severity.substring(0, 1).toUpperCase() + severity.substring(1)}
+        </AlertTitle>
         {text}
       </Alert>
     </Slide>
