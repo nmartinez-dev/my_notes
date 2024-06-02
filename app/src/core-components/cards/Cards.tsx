@@ -5,7 +5,7 @@ import CardBody from '../card-body/CardBody';
 import { CardsInterface } from '../../types';
 
 const Cards: FC<CardsInterface> = (props) => {
-  const { cards = [], cardsPerRow = 3, height = 200 } = props;
+  const { cards = [], cardsPerRow = 3, height = 200, fetchData } = props;
 
   const theme = useTheme();
 
@@ -48,7 +48,7 @@ const Cards: FC<CardsInterface> = (props) => {
                     {typeof card.content != 'string' ? (
                       card.content
                     ) : (
-                      <CardBody card={card} index={index} />
+                      <CardBody card={card} index={index} fetchData={fetchData} />
                     )}
                   </div>
                 </CardContent>

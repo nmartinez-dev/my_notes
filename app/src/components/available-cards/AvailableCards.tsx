@@ -43,7 +43,7 @@ const AvailableCards = () => {
   return (
     <>
       {filteredCards.length > 0 ? (
-        <Cards cards={filteredCards} />
+        <Cards cards={filteredCards} fetchData={fetchData} />
       ) : (
         <div
           style={{

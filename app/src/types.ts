@@ -29,6 +29,7 @@ export interface CardsInterface {
   cards: CardInterface[];
   cardsPerRow?: number;
   height?: number | string;
+  fetchData: () => void;
 }
 
 export interface AlertInterface {
@@ -74,4 +75,5 @@ export interface CardModalInterface {
 export interface CardBodyInterface {
   card: CardInterface;
   index: number;
+  fetchData: () => void;
 }

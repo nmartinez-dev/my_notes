@@ -7,44 +7,19 @@ import CardModal from '../../components/card-modal/CardModal';
 import ModalConfirm from '../modal-confirm/ModalConfirm';
 import { Context } from '../../context/Context';
 import { messages } from '../../messages/messages';
-import { addCard } from '../../utils/AddCard';
 import { CardBodyInterface } from '../../types';
-import { getCards, deleteCard } from '../../database/firebase';
+import { deleteCard } from '../../database/firebase';
 
 const CardBody: FC<CardBodyInterface> = (props) => {
-  const { card, index } = props;
+  const { card, index, fetchData } = props;
 
-  const { setUpdateCards, startLoading, stopLoading, setSuccess, setError } =
+  const { startLoading, stopLoading, setSuccess, setError } =
     useContext(Context);
 
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openConfirm, setOpenConfirm] = useState<boolean>(false);
 
   const theme = useTheme();
-
-  const fetchData = async () => {
-    startLoading();
-
-    try {
-      const response = await getCards();
-
-      if (response.success) {
-        let availableCards = response.data.map((value: object) => value);
-        availableCards.push(addCard(() => setOpenModal(true)));
-        setUpdateCards(availableCards);
-      } else {
-        setError(
-          typeof response.errorMessage == 'string'
-            ? response.errorMessage
-            : messages.error.get
-        );
-      }
-    } catch {
-      setError(messages.error.default);
-    } finally {
-      stopLoading();
-    }
-  };
 
   const handleDelete = async () => {
     setOpenConfirm(false);
