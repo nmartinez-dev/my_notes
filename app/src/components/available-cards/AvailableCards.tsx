@@ -15,14 +15,17 @@ const AvailableCards = () => {
   const fetchData = async () => {
     startLoading();
 
+    let availableCards = [addCard(() => setOpenModal(true))];
+
     try {
       const response = await getCards();
 
       if (response.success) {
-        let availableCards = response.data.map((value: object) => value);
-        availableCards.push(addCard(() => setOpenModal(true)));
-        setUpdateCards(availableCards);
+        let storageCards = response.data.map((value: object) => value);
+        storageCards.push(availableCards[0]);
+        setUpdateCards(storageCards);
       } else {
+        setUpdateCards(availableCards);
         setError(
           typeof response.errorMessage == 'string'
             ? response.errorMessage
@@ -30,6 +33,7 @@ const AvailableCards = () => {
         );
       }
     } catch {
+      setUpdateCards(availableCards);
       setError(messages.error.default);
     } finally {
       stopLoading();
