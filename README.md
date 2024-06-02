@@ -21,9 +21,9 @@ Realizar una aplicación en React que permita agregar frases y que esas frases l
 
 #### Instrucciones para correr en local
 
-1- Clonar el repositorio.
-2- Entrar con la terminal a la carpeta `app` dentro del proyecto.
-3- Ejecutar el comando `npm install` para instalar las dependencias.
-4- Ejecutar el comando `npm start` para arrancar la aplicación.
+- Clonar el repositorio.
+- Entrar con la terminal a la carpeta `app` dentro del proyecto.
+- Ejecutar el comando `npm install` para instalar las dependencias.
+- Ejecutar el comando `npm start` para arrancar la aplicación.
 
 Para correr los tests unitarios, ejecutar el comando `npm test` en el mismo directorio.
