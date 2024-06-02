@@ -1,10 +1,13 @@
 import { FC } from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import CardBody from '../card-body/CardBody';
 import { CardsInterface } from '../../types';
 
 const Cards: FC<CardsInterface> = (props) => {
   const { cards = [], cardsPerRow = 3, height = 200 } = props;
+
+  const theme = useTheme();
 
   return (
     <>
@@ -18,9 +21,18 @@ const Cards: FC<CardsInterface> = (props) => {
           }}>
           {cards.map((card, index) => {
             return (
-              <Card key={index} sx={{ height: height }} raised>
+              <Card
+                key={index}
+                sx={{ height: height, backgroundColor: '#000' }}
+                raised>
                 <CardContent style={{ height: '100%' }}>
-                  <Typography style={{ textAlign: 'center', marginBottom: 10 }}>
+                  <Typography
+                    style={{
+                      textAlign: 'center',
+                      marginBottom: 10,
+                      color: theme.palette.primary.main,
+                      fontWeight: 'bold',
+                    }}>
                     {card.label}
                   </Typography>
                   <div

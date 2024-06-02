@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to bottom, #5d13e7, #1d0646);
+  background: linear-gradient(to bottom, #00bdab, #ff42ff);
 }
 
 ::-webkit-scrollbar {

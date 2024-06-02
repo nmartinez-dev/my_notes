@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Modal, Box, Fade, Button, IconButton } from '@mui/material';
-import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import { ModalFormInterface } from '../../types';
 
@@ -14,13 +14,6 @@ const ModalForm: FC<ModalFormInterface> = (props) => {
   } = props;
 
   const theme = useTheme();
-  const buttonTheme = createTheme({
-    palette: {
-      primary: {
-        main: '#ffffff',
-      },
-    },
-  });
 
   const styles = {
     container: {
@@ -41,10 +34,11 @@ const ModalForm: FC<ModalFormInterface> = (props) => {
       alignItems: 'center',
       justifyContent: 'space-between',
       height: '8vh',
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: '#000',
       borderTopLeftRadius: 17,
       borderTopRightRadius: 17,
-      color: '#ffffff',
+      color: theme.palette.primary.main,
+      fontWeight: 'bold',
       paddingRight: 5,
       paddingLeft: 20,
       fontSize: 18,
@@ -68,11 +62,9 @@ const ModalForm: FC<ModalFormInterface> = (props) => {
         <Box sx={styles.container}>
           <div style={styles.header}>
             <div>{headerTitle}</div>
-            <ThemeProvider theme={buttonTheme}>
-              <IconButton onClick={resetForm}>
-                <CloseIcon fontSize='medium' color='primary' />
-              </IconButton>
-            </ThemeProvider>
+            <IconButton onClick={resetForm}>
+              <CloseIcon fontSize='medium' color='primary' />
+            </IconButton>
           </div>
 
           <div style={styles.body}>{children}</div>
@@ -80,13 +72,24 @@ const ModalForm: FC<ModalFormInterface> = (props) => {
           <div style={styles.footerButtons}>
             <Button
               variant='contained'
-              sx={{ color: '#ffffff', width: 100 }}
+              sx={{
+                backgroundColor: '#000',
+                color: theme.palette.primary.main,
+                width: 100,
+                fontWeight: 'bold',
+              }}
               onClick={resetForm}>
               Cancelar
             </Button>
             <Button
               variant='contained'
-              sx={{ color: '#ffffff', marginLeft: 2, width: 100 }}
+              sx={{
+                backgroundColor: '#000',
+                color: theme.palette.primary.main,
+                width: 100,
+                fontWeight: 'bold',
+                marginLeft: 2,
+              }}
               onClick={onModalSubmit}>
               Guardar
             </Button>

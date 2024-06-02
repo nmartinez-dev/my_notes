@@ -14,7 +14,7 @@ const CardModal: FC<CardModalInterface> = (props) => {
     index = 0,
   } = props;
 
-  const { cards, setCards } = useContext(Context);
+  const { cards, setUpdateCards } = useContext(Context);
 
   const [title, setTitle] = useState<string>(titleProp);
   const [description, setDescription] = useState<ReactNode | string>(
@@ -41,7 +41,7 @@ const CardModal: FC<CardModalInterface> = (props) => {
       availableCards[index] = cardToAdd;
     }
 
-    setCards(availableCards);
+    setUpdateCards(availableCards);
     resetForm();
   };
 
