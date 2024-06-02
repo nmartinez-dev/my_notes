@@ -1,4 +1,5 @@
 import { FC, useContext, useState } from 'react';
+import { useTheme } from '@mui/material/styles';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ButtonIcon from '../button-icon/ButtonIcon';
@@ -14,6 +15,8 @@ const CardBody: FC<CardBodyInterface> = (props) => {
 
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openConfirm, setOpenConfirm] = useState<boolean>(false);
+
+  const theme = useTheme();
 
   const handleDeleteCard = () => {
     let availableCards = cards.map((value) => value);
@@ -31,7 +34,12 @@ const CardBody: FC<CardBodyInterface> = (props) => {
           alignContent: 'space-between',
           height: '100%',
         }}>
-        <div style={{ marginTop: 10, height: '100%', color: '#fff' }}>
+        <div
+          style={{
+            marginTop: 10,
+            height: '100%',
+            color: theme.palette.primary.light,
+          }}>
           {card.content}
         </div>
 

@@ -23,7 +23,7 @@ const Cards: FC<CardsInterface> = (props) => {
             return (
               <Card
                 key={index}
-                sx={{ height: height, backgroundColor: '#000' }}
+                sx={{ height: height, backgroundColor: theme.palette.primary.dark }}
                 raised>
                 <CardContent style={{ height: '100%' }}>
                   <Typography
@@ -32,6 +32,7 @@ const Cards: FC<CardsInterface> = (props) => {
                       marginBottom: 10,
                       color: theme.palette.primary.main,
                       fontWeight: 'bold',
+                      overflow: 'auto',
                     }}>
                     {card.label}
                   </Typography>
