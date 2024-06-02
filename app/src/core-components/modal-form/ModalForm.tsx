@@ -16,7 +16,7 @@ const ModalForm: FC<ModalFormInterface> = (props) => {
   const theme = useTheme();
 
   return (
-    <Modal closeAfterTransition open={open} onClose={resetForm}>
+    <Modal closeAfterTransition open={open} onClose={resetForm} data-testid={'modal_form'}>
       <Fade in={open}>
         <Box
           sx={{
@@ -69,6 +69,8 @@ const ModalForm: FC<ModalFormInterface> = (props) => {
               padding: 20,
             }}>
             <Button
+              id='cancel_button'
+              data-testid='cancel_button'
               variant='contained'
               sx={{
                 backgroundColor: theme.palette.primary.dark,
@@ -80,6 +82,8 @@ const ModalForm: FC<ModalFormInterface> = (props) => {
               Cancelar
             </Button>
             <Button
+              id='save_button'
+              data-testid='save_button'
               variant='contained'
               sx={{
                 backgroundColor: theme.palette.primary.dark,

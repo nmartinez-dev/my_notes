@@ -14,7 +14,11 @@ const ButtonIcon: FC<ButtonIconInterface> = (props) => {
 
   return (
     <Tooltip title={tooltip} placement={placement} arrow>
-      <IconButton id={id} onClick={onClick} disabled={disabled}>
+      <IconButton
+        id={id}
+        data-testid={id}
+        onClick={onClick}
+        disabled={disabled}>
         {icon}
       </IconButton>
     </Tooltip>

@@ -144,6 +144,7 @@ const CardModal: FC<CardModalInterface> = (props) => {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <TextField
           id='title'
+          inputProps={{ 'data-testid': 'title' }}
           label='Título'
           value={title}
           onChange={handleChangeTitle}
@@ -154,6 +155,7 @@ const CardModal: FC<CardModalInterface> = (props) => {
         />
         <TextField
           id='description'
+          inputProps={{ 'data-testid': 'description' }}
           label='Descripción'
           value={description}
           onChange={handleChangeDescription}
