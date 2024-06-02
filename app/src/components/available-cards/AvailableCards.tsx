@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from 'react';
-import Cards from '../../core/cards/Cards';
+import Cards from '../../core-components/cards/Cards';
 import CardModal from '../card-modal/CardModal';
 import { Context } from '../../context/Context';
 import { addCard } from '../../utils/AddCard';

@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext, useState } from 'react';
 import { TextField } from '@mui/material';
-import ModalForm from '../../core/modal-form/ModalForm';
+import ModalForm from '../../core-components/modal-form/ModalForm';
 import { Context } from '../../context/Context';
 import { CardModalInterface } from '../../types';
 

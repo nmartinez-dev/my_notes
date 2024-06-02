@@ -1,5 +1,5 @@
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import ButtonIcon from '../core/button-icon/ButtonIcon';
+import ButtonIcon from '../core-components/button-icon/ButtonIcon';
 
 export const addCard = (handleAddCard: () => void) => ({
   label: '',

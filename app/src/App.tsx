@@ -3,7 +3,7 @@ import { ContextProvider } from './context/Context';
 import Header from './components/header/Header';
 import SearchContent from './components/search-content/SearchContent';
 import AvailableCards from './components/available-cards/AvailableCards';
-import Alerts from './core/alerts/Alerts';
+import Alerts from './core-components/alerts/Alerts';
 
 const App = () => {
   return (
