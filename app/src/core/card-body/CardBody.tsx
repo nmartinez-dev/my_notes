@@ -11,7 +11,7 @@ import './CardBody.css';
 const CardBody: FC<CardBodyInterface> = (props) => {
   const { card, index } = props;
 
-  const { cards, setCards } = useContext(Context);
+  const { cards, setUpdateCards } = useContext(Context);
 
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openConfirm, setOpenConfirm] = useState<boolean>(false);
@@ -19,25 +19,25 @@ const CardBody: FC<CardBodyInterface> = (props) => {
   const handleDeleteCard = () => {
     let availableCards = cards.map((value) => value);
     availableCards.splice(index, 1);
-    setCards(availableCards);
+    setUpdateCards(availableCards);
     setOpenConfirm(false);
   };
 
   return (
     <>
       <div className='card-content'>
-        <div style={{ marginTop: 10, height: '100%' }}>{card.content}</div>
+        <div style={{ marginTop: 10, height: '100%', color: '#fff' }}>{card.content}</div>
 
         <div className='card-icon-buttons-container'>
           <ButtonIcon
             id='edit_card_button'
-            icon={<EditIcon />}
+            icon={<EditIcon color='primary' />}
             tooltip={'Editar'}
             onClick={() => setOpenModal(true)}
           />
           <ButtonIcon
             id='delete_card_button'
-            icon={<DeleteIcon />}
+            icon={<DeleteIcon color='primary' />}
             tooltip={'Eliminar'}
             onClick={() => setOpenConfirm(true)}
           />

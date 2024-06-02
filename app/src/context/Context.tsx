@@ -12,6 +12,7 @@ export const ContextProvider: FC<ProviderInterface> = (props) => {
   const { children } = props;
 
   const [cards, setCards] = useState<CardInterface[]>([]);
+  const [filteredCards, setFilteredCards] = useState<CardInterface[]>([]);
   const [alert, setAlert] = useState<AlertInterface>({
     severity: 'success',
     text: '',
@@ -19,6 +20,11 @@ export const ContextProvider: FC<ProviderInterface> = (props) => {
     open: false,
   });
   const [loading, setLoading] = useState<boolean>(false);
+
+  const setUpdateCards = (cards: CardInterface[]) => {
+    setCards(cards);
+    setFilteredCards(cards);
+  };
 
   const setSuccess = (text: string, duration: number = 3000) => {
     setAlert({
@@ -45,10 +51,13 @@ export const ContextProvider: FC<ProviderInterface> = (props) => {
   const value = {
     cards,
     setCards,
+    filteredCards,
+    setFilteredCards,
     alert,
     setAlert,
     loading,
     setLoading,
+    setUpdateCards,
     setSuccess,
     setError,
     startLoading,

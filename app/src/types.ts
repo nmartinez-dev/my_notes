@@ -3,10 +3,13 @@ import { ReactNode, Dispatch, SetStateAction } from 'react';
 export interface ContextInterface {
   cards: CardInterface[];
   setCards: Dispatch<SetStateAction<CardInterface[]>>;
+  filteredCards: CardInterface[];
+  setFilteredCards: Dispatch<SetStateAction<CardInterface[]>>;
   alert: AlertInterface;
   setAlert: Dispatch<SetStateAction<AlertInterface>>;
   loading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
+  setUpdateCards: (cards: CardInterface[]) => void;
   setSuccess: (text: string, duration?: number) => void;
   setError: (text: string, duration?: number | null) => void;
   startLoading: () => void;
