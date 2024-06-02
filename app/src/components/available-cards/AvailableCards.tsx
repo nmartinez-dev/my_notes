@@ -17,7 +17,19 @@ const AvailableCards = () => {
 
   return (
     <>
-      <Cards cards={filteredCards} />
+      {filteredCards.length > 0 ? (
+        <Cards cards={filteredCards} />
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '10rem',
+          }}>
+          No se encontraron coincidencias.
+        </div>
+      )}
 
       {openModal && (
         <CardModal

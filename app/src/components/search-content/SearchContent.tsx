@@ -11,6 +11,11 @@ const SearchContent = () => {
   const handleChange = (event: any) => {
     setText(event.target.value);
 
+    if (event.target.value == '') {
+      setFilteredCards(cards);
+      return;
+    }
+
     let availableCards = cards.filter(
       (card, index) =>
         index != cards.length - 1 &&
