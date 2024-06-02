@@ -23,7 +23,10 @@ const Cards: FC<CardsInterface> = (props) => {
             return (
               <Card
                 key={index}
-                sx={{ height: height, backgroundColor: theme.palette.primary.dark }}
+                sx={{
+                  height: height,
+                  backgroundColor: theme.palette.primary.dark,
+                }}
                 raised>
                 <CardContent style={{ height: '100%' }}>
                   <Typography
@@ -42,7 +45,7 @@ const Cards: FC<CardsInterface> = (props) => {
                       maxHeight: Number(height) - 60,
                       height: '100%',
                     }}>
-                    {card.isEmpty ? (
+                    {typeof card.content != 'string' ? (
                       card.content
                     ) : (
                       <CardBody card={card} index={index} />

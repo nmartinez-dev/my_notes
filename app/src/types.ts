@@ -23,7 +23,6 @@ export interface ProviderInterface {
 export interface CardInterface {
   label: string;
   content: ReactNode | string;
-  isEmpty: boolean;
 }
 
 export interface CardsInterface {
@@ -69,6 +68,7 @@ export interface CardModalInterface {
   titleProp?: string;
   descriptionProp?: ReactNode | string;
   index?: number;
+  fetchData: () => void;
 }
 
 export interface CardBodyInterface {

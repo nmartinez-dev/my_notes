@@ -19,5 +19,4 @@ export const addCard = (handleAddCard: () => void) => ({
       />
     </div>
   ),
-  isEmpty: true,
 });

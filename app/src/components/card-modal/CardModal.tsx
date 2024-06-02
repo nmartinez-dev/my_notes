@@ -2,7 +2,9 @@ import { FC, ReactNode, useContext, useState } from 'react';
 import { TextField } from '@mui/material';
 import ModalForm from '../../core-components/modal-form/ModalForm';
 import { Context } from '../../context/Context';
+import { messages } from '../../messages/messages';
 import { CardModalInterface } from '../../types';
+import { saveCard } from '../../database/firebase';
 
 const CardModal: FC<CardModalInterface> = (props) => {
   const {
@@ -12,9 +14,11 @@ const CardModal: FC<CardModalInterface> = (props) => {
     titleProp = '',
     descriptionProp = '',
     index = 0,
+    fetchData,
   } = props;
 
-  const { cards, setUpdateCards } = useContext(Context);
+  const { cards, startLoading, stopLoading, setError, setSuccess } =
+    useContext(Context);
 
   const [title, setTitle] = useState<string>(titleProp);
   const [titleError, setTitleError] = useState<boolean>(false);
@@ -114,24 +118,62 @@ const CardModal: FC<CardModalInterface> = (props) => {
     setDescriptionHelperText('');
   };
 
-  const handleSubmit = () => {
+  const handleCreate = async () => {
+    startLoading();
+
+    try {
+      const response = await saveCard(cards.length - 1, title, description);
+
+      if (response.success) {
+        setSuccess(messages.success.create);
+        fetchData();
+      } else {
+        setError(
+          typeof response.errorMessage == 'string'
+            ? response.errorMessage
+            : messages.error.create
+        );
+      }
+    } catch {
+      setError(messages.error.default);
+    } finally {
+      stopLoading();
+    }
+  };
+
+  const handleEdit = async () => {
+    startLoading();
+
+    try {
+      const response = await saveCard(index, title, description);
+
+      if (response.success) {
+        setSuccess(messages.success.update);
+        fetchData();
+      } else {
+        setError(
+          typeof response.errorMessage == 'string'
+            ? response.errorMessage
+            : messages.error.update
+        );
+      }
+    } catch {
+      setError(messages.error.default);
+    } finally {
+      stopLoading();
+    }
+  };
+
+  const handleSubmit = async () => {
     let validation = validateFields();
     if (!validation) return;
 
-    let availableCards = cards.map((value) => value);
-    let cardToAdd = {
-      label: title,
-      content: description,
-      isEmpty: false,
-    };
-
     if (modalTitle == 'Agregar') {
-      availableCards.unshift(cardToAdd);
+      await handleCreate();
     } else {
-      availableCards[index] = cardToAdd;
+      await handleEdit();
     }
 
-    setUpdateCards(availableCards);
     resetForm();
   };
 
