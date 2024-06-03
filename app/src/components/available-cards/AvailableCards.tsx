@@ -41,6 +41,7 @@ const AvailableCards = () => {
   };
 
   useEffect(() => {
+    setUpdateCards([addCard(() => setOpenModal(true))]);
     fetchData();
   }, []);
 

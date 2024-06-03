@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import App from './App';
 
 const { getByTestId } = render(<App />);
@@ -23,14 +23,14 @@ const isModalOpen = (
   expect(saveButton).toBeInTheDocument();
 };
 
-const isModalClosed = (
+const isModalClosed = async (
   modal: any,
   titleInput: any,
   descriptionInput: any,
   cancelButton: any,
   saveButton: any
 ) => {
-  expect(modal).not.toBeInTheDocument();
+  await waitFor(() => expect(modal).not.toBeInTheDocument());
   expect(titleInput).not.toBeInTheDocument();
   expect(descriptionInput).not.toBeInTheDocument();
   expect(cancelButton).not.toBeInTheDocument();
