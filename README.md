@@ -14,6 +14,7 @@ Realizar una aplicación en React que permita agregar frases y que esas frases l
 - Context de react para manejo general del estado de la aplicación.
 - Material UI para componentes, tema y estilos.
 - Material Icons para los íconos.
+- Firebase Real Time Database como base de datos no relacional.
 
 #### Descripción de la aplicación
 
